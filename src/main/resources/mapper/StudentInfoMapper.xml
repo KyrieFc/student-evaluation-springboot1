@@ -22,4 +22,25 @@
             select * from student_admin.student_info where studentID = #{studentID} limit 1;
         </select>
 
+        <!-- 定义插入语句 -->
+        <insert id="insertStudentInfo" parameterType="com.example.student_evaluation.entity.StudentInfo">
+            INSERT INTO student_info (studentID, name, major, class_name, admission_year, supervisor)
+            VALUES (#{studentID}, #{name}, #{major}, #{class_name}, #{admission_year}, #{supervisor});
+        </insert>
+
+        <!-- 定义更新语句 -->
+        <update id="updateStudentInfo" parameterType="com.example.student_evaluation.entity.StudentInfo">
+            UPDATE student_admin.student_info
+            SET name = #{name}, major = #{major}, class_name = #{class_name}, admission_year = #{admission_year},
+            supervisor = #{supervisor}, gender = #{gender}, updated_at = #{updated_at}, version = #{version} + 1
+            WHERE id = #{id} AND version = #{version};
+        </update>
+
+        <!-- 定义删除语句 -->
+        <delete id="deleteStudentInfo" parameterType="java.lang.String">
+            DELETE FROM student_info WHERE studentID = #{studentID};
+        </delete>
+
+        <!-- 其他自定义查询语句等 -->
+
 </mapper>
