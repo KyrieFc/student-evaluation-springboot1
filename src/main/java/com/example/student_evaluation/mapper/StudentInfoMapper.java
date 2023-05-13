@@ -1,5 +1,6 @@
 package com.example.student_evaluation.mapper;
 
+import com.example.student_evaluation.entity.StudentInfo;
 import com.example.student_evaluation.entity.vo.StudentInfoVO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -7,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 public interface StudentInfoMapper {
     public StudentInfoVO getStudentInfoByStudentId(String studentId);
 
+    int updateStudentInfo(StudentInfo studentInfo);
 }
